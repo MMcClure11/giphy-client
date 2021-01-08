@@ -7,9 +7,10 @@ const GiphListContainer = () => {
   const [giphs, setGiphs] = useState([])
 
   const handleSearch = (query) => {
-    fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=COI788NHznUTLid1ciKLW2cPSQ4voDn1`)
-    .then(res => res.json())
-    .then(data => console.log(data))
+    console.log(query)
+    // fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=COI788NHznUTLid1ciKLW2cPSQ4voDn1`)
+    // .then(res => res.json())
+    // .then(data => console.log(data))
   }
 
   return (

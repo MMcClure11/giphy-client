@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 
-const GiphSearch = () => {
+const GiphSearch = (props) => {
 
   const [query, setQuery] = useState('')
 
   const onChange = event => {
     setQuery(event.target.value)
   }
-console.log(query)
+
+  const onSubmit = e => {
+    e.preventDefault()
+    props.handleSearch(query)
+  }
   return (
     <div>
-      <form>
+      <form onSubmit={ onSubmit }>
         <label>Search for Giphs:</label>
         <input name="query" type="text" onChange={ onChange } value={ query }  />
         <button type="submit">Search</button>
