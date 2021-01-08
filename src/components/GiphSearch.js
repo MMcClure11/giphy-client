@@ -11,6 +11,7 @@ const GiphSearch = (props) => {
   const onSubmit = e => {
     e.preventDefault()
     props.handleSearch(query)
+    setQuery('')
   }
   return (
     <div>
