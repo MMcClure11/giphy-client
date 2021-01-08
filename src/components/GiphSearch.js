@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const GiphSearch = () => {
+
+  const [query, setQuery] = useState('')
+
+  const onChange = event => {
+    setQuery(event.target.value)
+  }
+console.log(query)
   return (
     <div>
-      This is the GiphSearch
+      <form>
+        <label>Search for Giphs:</label>
+        <input name="query" type="text" onChange={ onChange } value={ query }  />
+        <button type="submit">Search</button>
+      </form>
     </div>
   )
 }
