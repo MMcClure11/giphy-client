@@ -30,7 +30,6 @@ export default class GiphListContainer extends Component {
   }
 
   handleFavorite = (obj) => {
-    // console.log(obj)
     return fetch(GIPH_URL, {
       method: 'POST',
       headers: {
@@ -48,7 +47,6 @@ export default class GiphListContainer extends Component {
     }
 
   render() {
-    console.log(this.state.giphs)
     return (
       <div>
         <UserList users={ this.state.users } />
