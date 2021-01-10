@@ -14,6 +14,10 @@ export default class GiphListContainer extends Component {
   }
 
   componentDidMount(){
+    this.getUsers()
+  }
+
+  getUsers = () => {
     return fetch('http://localhost:3000/api/v1/users')
     .then( res => res.json())
     .then( users => this.setState({users: users}))
@@ -36,7 +40,7 @@ export default class GiphListContainer extends Component {
     })
     .then(res => res.json())
     .then(user => {
-      this.setState({users: [...this.state.users, user]})
+      this.getUsers()
     })
     .catch((error) => {
       console.log('Error:', error)
