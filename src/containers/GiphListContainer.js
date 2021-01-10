@@ -12,10 +12,14 @@ const GiphListContainer = () => {
     .then(data => setGiphs(data))
   }
 
+  const handleFavorite = (obj) => {
+    console.log(obj)
+  }
+
   return (
     <div>
       <GiphSearch handleSearch={ handleSearch } />
-      <GiphList giphs={ giphs } />
+      <GiphList giphs={ giphs } handleFavorite={ handleFavorite }/>
     </div>
   )
 }
