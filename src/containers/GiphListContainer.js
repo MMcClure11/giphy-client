@@ -19,11 +19,19 @@ export default class GiphListContainer extends Component {
     .then( users => this.setState({users: users}))
   }
 
+  handleSearch = (query) => {
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=COI788NHznUTLid1ciKLW2cPSQ4voDn1`)
+    .then(res => res.json())
+    .then(data => this.setState({giphs: data}))
+  }
+
   render() {
+    console.log(this.state.giphs)
     return (
       <div>
         i m container
         <UserList users={ this.state.users } />
+        <GiphSearch handleSearch={ this.handleSearch } />
       </div>
     )
   }
