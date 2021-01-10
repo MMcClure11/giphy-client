@@ -18,8 +18,7 @@ const GiphListContainer = () => {
   }
 
   const handleFavorite = (obj) => {
-    console.log(obj)
-    setUsers([obj])
+    setUsers([...users, obj])
     // return fetch(FAVORITE_URL, {
     //   method: 'POST',
     //   headers: {
@@ -35,7 +34,7 @@ const GiphListContainer = () => {
     //   console.erorr('Error:', error)
     // })
   }
-console.log(users)
+
   return (
     <div>
       <UserList users={users} />
