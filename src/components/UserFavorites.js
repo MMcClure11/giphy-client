@@ -13,9 +13,15 @@ export default class UserFavorites extends Component {
     .then( data => this.setState(data))
   }
   render() {
+    
     return (
       <div>
         <h2>{this.state.username}'s Favorites</h2>
+        {this.state.giphs.map( giph =>  
+          <div key={ giph.id }>
+            <h3>{ giph.title }</h3>
+            <img src={ giph.url} alt={ giph.title} />
+          </div>)}
       </div>
     )
   }
