@@ -1,9 +1,11 @@
 import React from 'react'
 
-const UserList = () => {
+const UserList = (props) => {
+  console.log(props)
   return (
     <div>
-      I am the user list
+      <h4>User Favorites</h4>
+      {props.users && props.users.map(user => <li key={ user.username }>{user.username}: { user.title }</li>)}
     </div>
   )
 }

@@ -19,7 +19,7 @@ const GiphListContainer = () => {
 
   const handleFavorite = (obj) => {
     console.log(obj)
-    setUsers(obj)
+    setUsers([obj])
     // return fetch(FAVORITE_URL, {
     //   method: 'POST',
     //   headers: {
