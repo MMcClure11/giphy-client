@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const UserList = (props) => {
-  console.log(props)
+  
   return (
     <div>
       <h4>User Favorites</h4>
