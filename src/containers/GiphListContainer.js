@@ -6,6 +6,9 @@ const GiphListContainer = () => {
 
   const [giphs, setGiphs] = useState([])
 
+  const BASE_URL = 'http://localhost:3000/api/v1/'
+  const FAVORITE_URL = `${BASE_URL}/favorites`
+
   const handleSearch = (query) => {
     fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=COI788NHznUTLid1ciKLW2cPSQ4voDn1`)
     .then(res => res.json())
@@ -14,6 +17,20 @@ const GiphListContainer = () => {
 
   const handleFavorite = (obj) => {
     console.log(obj)
+    return fetch(FAVORITE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(obj),
+    })
+    .then(res => res.json())
+    .then(favorite => {
+      console.log(favorite)
+    })
+    .catch((error) => {
+      console.erorr('Error:', error)
+    })
   }
 
   return (
