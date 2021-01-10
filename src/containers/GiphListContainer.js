@@ -25,13 +25,31 @@ export default class GiphListContainer extends Component {
     .then(data => this.setState({giphs: data}))
   }
 
+  handleFavorite = (obj) => {
+    // console.log(obj)
+    return fetch(FAVORITE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(obj),
+    })
+    .then(res => res.json())
+    .then(favorite => {
+      console.log(favorite)
+    })
+    .catch((error) => {
+      console.erorr('Error:', error)
+    })
+    }
+
   render() {
     console.log(this.state.giphs)
     return (
       <div>
-        i m container
         <UserList users={ this.state.users } />
         <GiphSearch handleSearch={ this.handleSearch } />
+        <GiphList giphs={ this.state.giphs } handleFavorite={ this.handleFavorite }/>
       </div>
     )
   }
