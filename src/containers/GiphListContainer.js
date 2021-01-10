@@ -3,8 +3,8 @@ import GiphList from '../components/GiphList'
 import GiphSearch from '../components/GiphSearch'
 import UserList from '../components/UserList'
 
-const BASE_URL = 'http://localhost:3000/api/v1/'
-const FAVORITE_URL = `${BASE_URL}/favorites`
+const BASE_URL = 'http://localhost:3000/api/v1'
+const GIPH_URL = `${BASE_URL}/giphs`
 
 export default class GiphListContainer extends Component {
 
@@ -27,7 +27,7 @@ export default class GiphListContainer extends Component {
 
   handleFavorite = (obj) => {
     // console.log(obj)
-    return fetch(FAVORITE_URL, {
+    return fetch(GIPH_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -35,11 +35,11 @@ export default class GiphListContainer extends Component {
       body: JSON.stringify(obj),
     })
     .then(res => res.json())
-    .then(favorite => {
-      console.log(favorite)
+    .then(user => {
+      this.setState({users: [...this.state.users, user]})
     })
     .catch((error) => {
-      console.erorr('Error:', error)
+      console.log('Error:', error)
     })
     }
 
