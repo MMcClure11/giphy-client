@@ -1,9 +1,10 @@
 import React from 'react'
 
-function UserFavorites() {
+function UserFavorites(props) {
+  const id = props.match.params.id
   return (
     <div>
-      I am a particular user's list of favorited gifs
+      <h2>User with id of { id } and their favorite gifs</h2>
     </div>
   )
 }
