@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import GiphList from '../components/GiphList'
 import GiphSearch from '../components/GiphSearch'
 import UserList from '../components/UserList'
+import { newFavGiph } from '../services/giph'
 
-const BASE_URL = 'http://localhost:3000/api/v1'
-const GIPH_URL = `${BASE_URL}/giphs`
 
 export default class GiphListContainer extends Component {
 
@@ -30,14 +29,7 @@ export default class GiphListContainer extends Component {
   }
 
   handleFavorite = (obj) => {
-    return fetch(GIPH_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(obj),
-    })
-    .then(res => res.json())
+    newFavGiph(obj)
     .then(user => {
       this.getUsers()
     })
