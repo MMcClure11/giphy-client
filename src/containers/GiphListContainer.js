@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import GiphList from '../components/GiphList'
 import GiphSearch from '../components/GiphSearch'
 import UserList from '../components/UserList'
-import { newFavGiph } from '../services/giph'
+import { newFavGiph, searchGiphs } from '../services/giph'
 import { getUsers } from '../services/user'
 
 export default class GiphListContainer extends Component {
@@ -18,8 +18,7 @@ export default class GiphListContainer extends Component {
   }
 
   handleSearch = (query) => {
-    fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=COI788NHznUTLid1ciKLW2cPSQ4voDn1`)
-    .then(res => res.json())
+    searchGiphs(query)
     .then(data => this.setState({giphs: data}))
   }
 

@@ -11,3 +11,8 @@ export const newFavGiph = (obj) => {
   })
   .then(res => res.json())
 }
+
+export const searchGiphs = (query) => {
+  return fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=COI788NHznUTLid1ciKLW2cPSQ4voDn1`)
+    .then(res => res.json())
+}
