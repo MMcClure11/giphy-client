@@ -3,7 +3,7 @@ import GiphList from '../components/GiphList'
 import GiphSearch from '../components/GiphSearch'
 import UserList from '../components/UserList'
 import { newFavGiph } from '../services/giph'
-
+import { getUsers } from '../services/user'
 
 export default class GiphListContainer extends Component {
 
@@ -13,12 +13,7 @@ export default class GiphListContainer extends Component {
   }
 
   componentDidMount(){
-    this.getUsers()
-  }
-
-  getUsers = () => {
-    return fetch('http://localhost:3000/api/v1/users')
-    .then( res => res.json())
+    getUsers()
     .then( users => this.setState({users: users}))
   }
 
@@ -31,7 +26,7 @@ export default class GiphListContainer extends Component {
   handleFavorite = (obj) => {
     newFavGiph(obj)
     .then(user => {
-      this.getUsers()
+      getUsers()
     })
     .catch((error) => {
       console.log('Error:', error)
