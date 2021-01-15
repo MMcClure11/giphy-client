@@ -12,4 +12,8 @@ describe('GiphListContainer', () => {
   it('renders correctly', () => {
     expect(giphListContainer).toMatchSnapshot()
   })
+
+  it('initializes the `state` with an empty list of giphs', () => {
+    expect(giphListContainer.state().giphs).toEqual([])
+  })
 })
