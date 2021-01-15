@@ -1,1 +1,1 @@
-Starts DevLog
+run tests command: yarn run test
