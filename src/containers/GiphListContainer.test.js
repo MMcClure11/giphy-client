@@ -16,4 +16,20 @@ describe('GiphListContainer', () => {
   it('initializes the `state` with an empty list of giphs', () => {
     expect(giphListContainer.state().giphs).toEqual([])
   })
+
+  it('initialzes the `state` with an empty list of users', () => {
+    expect(giphListContainer.state().users).toEqual([])
+  })
+
+  it('creates a UserList component', () => {
+    expect(giphListContainer.find('UserList').exists()).toBe(true)
+  })
+
+  it('creates a GiphSearch component', () => {
+    expect(giphListContainer.find('GiphSearch').exists()).toBe(true)
+  })
+
+  it('creates a GiphList component', () => {
+    expect(giphListContainer.find('GiphList').exists()).toBe(true)
+  })
 })
