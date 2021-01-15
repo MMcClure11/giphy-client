@@ -17,7 +17,7 @@ const GiphSearch = (props) => {
     <div>
       <form onSubmit={ onSubmit }>
         <label>Search for Giphs:</label>
-        <input name="query" type="text" onChange={ onChange } value={ query }  />
+        <input className='input-query' name="query" type="text" onChange={ onChange } value={ query }  />
         <button type="submit">Search</button>
       </form>
     </div>
