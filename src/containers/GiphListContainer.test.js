@@ -6,3 +6,10 @@ import GiphListContainer from './GiphListContainer'
 
 Enzyme.configure({ adapter: new EnzymeAdapter() })
 
+describe('GiphListContainer', () => {
+  const giphListContainer = shallow(<GiphListContainer />)
+
+  it('renders correctly', () => {
+    expect(giphListContainer).toMatchSnapshot()
+  })
+})
